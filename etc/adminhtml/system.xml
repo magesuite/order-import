@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magesuite" translate="label" sortOrder="300">
+            <label>MageSuite</label>
+        </tab>
+        <section id="orderimport" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>OrderImport</label>
+            <tab>magesuite</tab>
+            <resource>MageSuite_OrderImport::config_orderimport</resource>
+            <group id="automatic" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Automatic import</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" >
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="import_type" translate="label" type="select" sortOrder="20" showInDefault="1" >
+                    <label>Import Type</label>
+                    <source_model>MageSuite\OrderImport\Model\Config\ImportType</source_model>
+                </field>
+                <field id="ftp_host" translate="label" type="text" sortOrder="50" showInDefault="1">
+                    <label>Host</label>
+                </field>
+                <field id="ftp_protocol" translate="label" type="text" sortOrder="60" showInDefault="1">
+                    <label>Protocol</label>
+                </field>
+                <field id="ftp_login" translate="label" type="text" sortOrder="70" showInDefault="1">
+                    <label>Login</label>
+                </field>
+                <field id='ftp_password' translate='label' type='password' sortOrder='80' showInDefault='1'>
+                    <label>Password</label>
+                </field>
+                <field id="ftp_path" translate="label" type="text" sortOrder="90" showInDefault="1">
+                    <label>Remote path</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+  <Order>
+    <Head>
+      <MagentoOrderIncrementId>000000004</MagentoOrderIncrementId>
+    </Head>
+  </Order>
+  <Order>
+    <Head>
+      <MagentoOrderIncrementId>000000005</MagentoOrderIncrementId>
+    </Head>
+  </Order>
+  <Order>
+    <Head>
+      <MagentoOrderIncrementId>000000006</MagentoOrderIncrementId>
+    </Head>
+  </Order>
+</Orders>

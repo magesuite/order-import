@@ -1,0 +1,53 @@
+<?php $import = $block->getImport(); ?>
+
+<div class="page-main-actions">
+    <div class="page-actions-placeholder"></div>
+    <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+        <div class="page-actions-inner">
+            <div class="page-actions-buttons">
+                <button id="back" title="Back" type="button" class="action- scalable back" onclick="setLocation('<?= $block->getUrl('*/*/index') ?>')" data-ui-id="back-button">
+                    <span>Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="admin__table-secondary">
+    <tr>
+        <th><?=__('Id')?></th>
+        <td><?= $import->getImportId() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Type')?></th>
+        <td><?= $import->getType() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Imported filename')?></th>
+        <td><?= $import->getImportedFilename() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Started at')?></th>
+        <td><?= $import->getStartedAt() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Finished at')?></th>
+        <td><?= $import->getFinishedAt() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Success orders amount')?></th>
+        <td><?= $import->getSuccess() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Success IDs')?></th>
+        <td><?= $import->getSuccessIds() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Fail orders amount')?></th>
+        <td><?= $import->getFail() ?></td>
+    </tr>
+    <tr>
+        <th><?=__('Fail IDs')?></th>
+        <td><?= $import->getFailIds() ?></td>
+    </tr>
+</table>
