@@ -50,7 +50,7 @@ class Import extends \Symfony\Component\Console\Command\Command
         \Symfony\Component\Console\Output\OutputInterface $output
     )
     {
-        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMIN);
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML);
 
         $remoteDirectory = $input->getArgument('remote-dir');
 
