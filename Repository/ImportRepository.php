@@ -7,19 +7,18 @@ class ImportRepository
     /**
      * @var \MageSuite\OrderImport\Model\ResourceModel\Import
      */
-    private $importResourceModel;
+    protected $importResourceModel;
 
     /**
      * @var \MageSuite\OrderImport\Model\ImportFactory
      */
-    private $importFactory;
+    protected $importFactory;
 
     /**
      * @var \MageSuite\OrderImport\Model\Collections\ImportFactory
      */
-    private $importCollectionFactory;
-
-
+    protected $importCollectionFactory;
+    
     public function __construct(
         \MageSuite\OrderImport\Model\ResourceModel\Import $importResourceModel,
         \MageSuite\OrderImport\Model\ImportFactory $importFactory,

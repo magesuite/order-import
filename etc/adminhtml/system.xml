@@ -8,30 +8,39 @@
             <label>OrderImport</label>
             <tab>magesuite</tab>
             <resource>MageSuite_OrderImport::config_orderimport</resource>
-            <group id="automatic" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Automatic import</label>
-                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" >
-                    <label>Enabled</label>
+            <group id="ftp" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>FTP</label>
+                <field id="cron_active" translate="label" type="select" sortOrder="10" showInDefault="1" >
+                    <label>Cron Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="import_type" translate="label" type="select" sortOrder="20" showInDefault="1" >
-                    <label>Import Type</label>
-                    <source_model>MageSuite\OrderImport\Model\Config\ImportType</source_model>
+                <field id="cron_schedule" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Schedule</label>
+                    <comment>Please type full cron schedule expression, eg. '59 23 * * *'</comment>
                 </field>
-                <field id="ftp_host" translate="label" type="text" sortOrder="50" showInDefault="1">
+                <field id="host" translate="label" type="text" sortOrder="30" showInDefault="1">
                     <label>Host</label>
                 </field>
-                <field id="ftp_protocol" translate="label" type="text" sortOrder="60" showInDefault="1">
+                <field id="protocol" translate="label" type="text" sortOrder="40" showInDefault="1">
                     <label>Protocol</label>
                 </field>
-                <field id="ftp_login" translate="label" type="text" sortOrder="70" showInDefault="1">
+                <field id="login" translate="label" type="text" sortOrder="50" showInDefault="1">
                     <label>Login</label>
                 </field>
-                <field id='ftp_password' translate='label' type='password' sortOrder='80' showInDefault='1'>
+                <field id='password' translate='label' type='password' sortOrder='60' showInDefault='1'>
                     <label>Password</label>
                 </field>
-                <field id="ftp_path" translate="label" type="text" sortOrder="90" showInDefault="1">
+                <field id="path" translate="label" type="text" sortOrder="70" showInDefault="1">
                     <label>Remote path</label>
+                </field>
+            </group>
+            <group id="parcellab" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="user_id" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>User ID</label>
+                </field>
+                <field id="webhook_active" translate="label" type="select" sortOrder="20" showInDefault="1" >
+                    <label>Webhook Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>

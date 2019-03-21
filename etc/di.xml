@@ -3,8 +3,96 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="orderimport_import_manual" xsi:type="object">MageSuite\OrderImport\Console\Command\Import</item>
+                <item name="order_import_ftp_manual" xsi:type="object">MageSuite\OrderImport\Console\Command\ImportFtp</item>
+                <item name="order_import_parcellab_api" xsi:type="object">MageSuite\OrderImport\Console\Command\ImportParcelLabApi</item>
             </argument>
         </arguments>
     </type>
+
+    <preference for="MageSuite\OrderImport\Api\ParcelLabWebhookHandlerInterface" type="MageSuite\OrderImport\Services\Import\ParcelLab\Webhook" />
+
+    <type name="MageSuite\OrderImport\Services\Import\ImportType\ImportTypeFactory">
+        <arguments>
+            <argument name="classMapping" xsi:type="array">
+                <item name="ftp" xsi:type="string">MageSuite\OrderImport\Services\Import\ImportType\Ftp</item>
+                <item name="parcellab_api" xsi:type="string">MageSuite\OrderImport\Services\Import\ImportType\ParcelLabApi</item>
+                <item name="parcellab_webhook" xsi:type="string">MageSuite\OrderImport\Services\Import\ImportType\ParcelLabWebhook</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\Importer\ImporterFactory">
+        <arguments>
+            <argument name="classMapping" xsi:type="array">
+                <item name="default_importer" xsi:type="string">MageSuite\OrderImport\Services\Import\Importer\Generic</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\Shipment\ShipmentFactory">
+        <arguments>
+            <argument name="classMapping" xsi:type="array">
+                <item name="default_shipment" xsi:type="string">MageSuite\OrderImport\Services\Import\Shipment\Generic</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\File\Converter\ConverterFactory">
+        <arguments>
+            <argument name="classMapping" xsi:type="array">
+                <item name="default_csv" xsi:type="string">MageSuite\OrderImport\Services\File\Converter\Csv\OrderCollection</item>
+                <item name="default_xml" xsi:type="string">MageSuite\OrderImport\Services\File\Converter\Xml\OrderCollection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\ImportType\Ftp">
+        <arguments>
+            <argument name="importerName" xsi:type="string">default_importer</argument>
+            <argument name="converterName" xsi:type="string">default_csv</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\ImportType\ParcelLabApi">
+        <arguments>
+            <argument name="importerName" xsi:type="string">default_importer</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\ImportType\ParcelLabWebhook">
+        <arguments>
+            <argument name="importerName" xsi:type="string">default_importer</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\Importer\Generic">
+        <arguments>
+            <argument name="shipmentName" xsi:type="string">default_shipment</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Cron\ImportFtp">
+        <arguments>
+            <argument name="importTypeName" xsi:type="string">ftp</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Console\Command\ImportFtp">
+        <arguments>
+            <argument name="importTypeName" xsi:type="string">ftp</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Console\Command\ImportParcelLabApi">
+        <arguments>
+            <argument name="importTypeName" xsi:type="string">parcellab_api</argument>
+        </arguments>
+    </type>
+
+    <type name="MageSuite\OrderImport\Services\Import\ParcelLab\Webhook">
+        <arguments>
+            <argument name="importTypeName" xsi:type="string">parcellab_webhook</argument>
+        </arguments>
+    </type>
+
 </config>

@@ -8,7 +8,7 @@ class ImportTest extends \PHPUnit\Framework\TestCase
     /**
      * @var \Magento\TestFramework\ObjectManager
      */
-    private $objectManager;
+    protected $objectManager;
 
     public function setUp()
     {
@@ -21,8 +21,9 @@ class ImportTest extends \PHPUnit\Framework\TestCase
 
         $result = ['success' => 1, 'fail' => 2, 'successIds' => ['100000001'], 'failIds' => ['100000002', '100000003']];
 
-        $importModel->setResult('manual', 'import.csv', $result);
+        $importModel->setResult('manual', $result, 'comment', 'import.csv');
         $this->assertEquals('manual', $importModel->getType());
+        $this->assertEquals('comment', $importModel->getComment());
         $this->assertEquals('import.csv', $importModel->getImportedFilename());
         $this->assertEquals('1', $importModel->getSuccess());
         $this->assertEquals('2', $importModel->getFail());
