@@ -2,10 +2,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <orderimport>
-            <automatic>
-                <active>0</active>
-                <import_type>default_csv</import_type>
-            </automatic>
+            <ftp>
+                <cron_active>0</cron_active>
+                <cron_schedule>0 18 * * *</cron_schedule>
+            </ftp>
+            <parcellab>
+                <webhook_active>0</webhook_active>
+            </parcellab>
         </orderimport>
     </default>
 </config>

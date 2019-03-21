@@ -7,7 +7,7 @@ class Show extends \Magento\Backend\Block\Template
     /**
      * @var \Magento\Framework\Registry
      */
-    private $registry;
+    protected $registry;
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,

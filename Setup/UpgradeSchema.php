@@ -23,23 +23,26 @@ class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface
             $tableName = $setup->getTable('orderimport_log');
 
             if ($setup->getConnection()->isTableExists($tableName) == true) {
-                $columns = [
-                    'imported_filename' => [
-                        'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                        'nullable' => false,
-                        'size' => 255,
-                        'comment' => 'Imported filename',
-                        'default' => ''
-                    ]
-                ];
+                $setup->getConnection()->addColumn($tableName, 'imported_filename', [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'nullable' => false,
+                    'size' => 255,
+                    'comment' => 'Imported filename',
+                    'default' => ''
+                ]);
+            }
+        }
 
-                $connection = $setup->getConnection();
+        if (version_compare($context->getVersion(), '2.0.0') < 0) {
+            $tableName = $setup->getTable('orderimport_log');
 
-                foreach ($columns as $name => $definition) {
-                    if(!$connection->tableColumnExists($tableName, $name)) {
-                        $connection->addColumn($tableName, $name, $definition);
-                    }
-                }
+            if ($setup->getConnection()->isTableExists($tableName) == true) {
+                $setup->getConnection()->addColumn($tableName, 'comment', [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'nullable' => false,
+                    'comment' => 'Comment for the import',
+                    'default' => ''
+                ]);
             }
         }
 

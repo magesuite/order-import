@@ -8,16 +8,16 @@ class Show extends \Magento\Backend\App\Action
     /**
      * @var \Magento\Framework\Registry
      */
-    private $registry;
+    protected $registry;
 
     /**
      * @var \MageSuite\OrderImport\Repository\ImportRepository
      */
-    private $importRepository;
+    protected $importRepository;
     /**
      * @var \Magento\Framework\Controller\Result\RedirectFactory
      */
-    private $redirectFactory;
+    protected $redirectFactory;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,

@@ -1,8 +1,9 @@
 <?php
 
-namespace MageSuite\OrderImport\Services\File\Converter;
+namespace MageSuite\OrderImport\Services\Import\ImportType;
 
-class ConverterFactory
+
+class ImportTypeFactory
 {
     /**
      * @var array
@@ -24,15 +25,15 @@ class ConverterFactory
     }
 
     /**
-     * @param string $converterName
-     * @return \MageSuite\OrderImport\Api\OrderCollectionConverter
+     * @param string $importTypeName
+     * @return \MageSuite\OrderImport\Api\ImportTypeInterface
      */
-    public function create(string $converterName)
+    public function create(string $importTypeName)
     {
-        if (!isset($this->classMapping[$converterName])) {
+        if (!isset($this->classMapping[$importTypeName])) {
             return null;
         }
 
-        return $this->objectManager->create($this->classMapping[$converterName]);
+        return $this->objectManager->create($this->classMapping[$importTypeName]);
     }
 }
