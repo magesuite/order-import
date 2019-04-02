@@ -47,7 +47,7 @@ class Webhook implements \MageSuite\OrderImport\Api\ParcelLabWebhookHandlerInter
     {
         $active = $this->scopeConfig->getValue(self::CONFIG_PARCELLAB_WEBHOOK_ENABLED_PATH);
         if (!$active) {
-            return;
+            return false;
         }
 
         $importer = $this->importTypeFactory->create($this->importTypeName);
@@ -62,5 +62,7 @@ class Webhook implements \MageSuite\OrderImport\Api\ParcelLabWebhookHandlerInter
             $importer->run($configuration);
             $this->eventManager->dispatch(self::EVENT_AFTER_ON_DISPATCH, ['webhook_data' => $configuration]);
         }
+
+        return true;
     }
 }

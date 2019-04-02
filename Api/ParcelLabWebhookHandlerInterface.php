@@ -15,6 +15,7 @@ interface ParcelLabWebhookHandlerInterface
      * @param string $event
      * @param string[] $references
      * @param string[] $data
+     * @return boolean
      */
     public function handle($event, $references, $data);
 }
