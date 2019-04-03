@@ -81,10 +81,10 @@ class Ftp implements \MageSuite\OrderImport\Api\ImportTypeInterface
     {
         $ftpScopeConfig = $this->scopeConfig->getValue(self::CONFIG_FTP_PATH);
         $this->downloader->configure(
-            $this->scopeConfig->getValue($ftpScopeConfig['protocol']),
-            $this->scopeConfig->getValue($ftpScopeConfig['host']),
-            $this->scopeConfig->getValue($ftpScopeConfig['login']),
-            $this->scopeConfig->getValue($ftpScopeConfig['password'])
+            $ftpScopeConfig['protocol'],
+            $ftpScopeConfig['host'],
+            $ftpScopeConfig['login'],
+            $ftpScopeConfig['password']
         );
         $remoteDirectory = $this->getRemoteDirectory($configuration, $ftpScopeConfig);
 
