@@ -52,7 +52,7 @@ class GenericTest extends \PHPUnit\Framework\TestCase
     /**
      * @magentoDbIsolation enabled
      * @magentoAppIsolation enabled
-     * @magentoDataFixture Magento/Sales/_files/two_orders_for_two_diff_customers.php
+     * @magentoDataFixture loadTwoOrdersForTwoDiffCustomersFixture
      */
     public function testImport()
     {
@@ -70,4 +70,8 @@ class GenericTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $result);
     }
 
+    public static function loadTwoOrdersForTwoDiffCustomersFixture()
+    {
+        include __DIR__ . "/../../../_files/two_orders_for_two_diff_customers.php";
+    }
 }
