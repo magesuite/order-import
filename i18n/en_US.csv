@@ -1,0 +1,27 @@
+"Shipped Orders Import Logs","Shipped Orders Import Logs"
+"Shipped Order Import Log","Shipped Order Import Log"
+Id,Id
+Type,Type
+"Imported filename","Imported filename"
+"Started at","Started at"
+"Finished at","Finished at"
+"Success orders amount","Success orders amount"
+"Success IDs","Success IDs"
+"Fail orders amount","Fail orders amount"
+"Fail IDs","Fail IDs"
+Comment,Comment
+"Shipped Orders Import Log","Shipped Orders Import Log"
+MageSuite,MageSuite
+OrderImport,OrderImport
+FTP,FTP
+"Cron Enabled","Cron Enabled"
+"Cron Schedule","Cron Schedule"
+Host,Host
+Protocol,Protocol
+Login,Login
+Password,Password
+"Remote path","Remote path"
+ParcelLab,ParcelLab
+"User ID","User ID"
+"Webhook Enabled","Webhook Enabled"
+ID,ID
