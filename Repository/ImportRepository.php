@@ -18,7 +18,7 @@ class ImportRepository
      * @var \MageSuite\OrderImport\Model\Collections\ImportFactory
      */
     protected $importCollectionFactory;
-    
+
     public function __construct(
         \MageSuite\OrderImport\Model\ResourceModel\Import $importResourceModel,
         \MageSuite\OrderImport\Model\ImportFactory $importFactory,
